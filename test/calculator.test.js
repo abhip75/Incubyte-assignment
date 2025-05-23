@@ -21,3 +21,7 @@ test('returns sum of multiple numbers', () => {
 test('returns 6 for "1\\n2,3"', () => {
     expect(add("1\n2,3")).toBe(6);
 });
+
+test('supports custome delimeter ;', () => {
+    expect(add("//;\n1;2")).toBe(3);
+});
