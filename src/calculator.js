@@ -11,9 +11,12 @@ function add(numbers){
 
     const nums = numString.split(delimeter).map(n => parseInt(n,10));
 
-    const sum = nums.reduce((acc,num) => acc + num, 0);
+    const negatives = nums.filter(n => n < 0);
+    if(negatives.length > 0){
+        throw new Error(`negative numbers not allowed: ${negatives.join(',')}`);
+    }
 
-    return sum;
+    return nums.reduce((acc,num) => acc + num, 0);
 }
 
 module.exports = { add}
